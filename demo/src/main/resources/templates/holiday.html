@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Getting Started: Serving Web Content</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="${name}" />
+      <span th:each="h: ${holidays}">
+          
+		<div th:if="${#dates.year(h.date) == 1911}">
+		   Date:<span th:text="${#dates.format(h.date, 'MM-dd')}"></span>
+		</div>
+		<!-- ELSE -->
+		<div th:unless="${#dates.year(h.date) == 1911}">
+		   Date:<span th:text="${#dates.format(h.date, 'yyyy-MM-dd')}"></span>
+		</div>      
+      </span>
+    <BR />
+</body>
+</html>
